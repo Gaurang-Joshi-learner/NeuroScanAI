@@ -1,111 +1,291 @@
 # 🧠 NeuroScanAI
 
-> Brain-Computer Interface system for detecting epileptic seizures and decoding speech signals using machine learning
+AI-Powered EEG Analysis Platform for Seizure Detection and Speech Decoding
+
+NeuroScanAI is a full-stack healthcare AI platform that enables researchers and clinicians to upload EEG recordings, perform automated seizure analysis, visualize risk timelines, and generate professional PDF reports. The platform also includes support for EEG-based speech decoding workflows.
 
 ---
 
-## 🚀 Overview
+## 🚀 Features
 
-This project explores the use of **Brain-Computer Interfaces (BCI)** to analyze brain signals for two key applications:
+### Authentication & Security
 
-* ⚡ **Seizure Detection** using EEG signal classification
-* 🗣 **Speech Decoding** from neural activity patterns
+* JWT-based Authentication
+* Secure User Registration & Login
+* Google OAuth Integration
+* Organization-based Access Control
 
-It combines **signal processing**, **machine learning**, and **neuroscience concepts** to build an intelligent system capable of interpreting brain signals.
+### Seizure Detection
+
+* Upload EDF EEG recordings
+* Automated EEG preprocessing
+* Feature extraction pipeline
+* EEGNet-based deep learning inference
+* Seizure risk assessment
+* Epoch-wise probability predictions
+* Interactive probability timeline visualization
+
+### Speech Decoding
+
+* EEG Speech Decoding Pipeline
+* KaraOne Dataset Support
+* EEGNet Classification Architecture
+* Feature Engineering & Dimensionality Reduction
+
+### Reporting
+
+* Download Analysis Results as JSON
+* Generate Professional PDF Reports
+* Embedded Seizure Probability Timeline
+* Summary Statistics & Risk Assessment
+
+### Dashboard
+
+* Analysis History Tracking
+* Status Monitoring
+* Risk Visualization
+* Multi-user Support
 
 ---
 
-## ✨ Features
+# 🏗️ System Architecture
 
-* 🧠 EEG signal processing and feature extraction
-* ⚡ Seizure detection using ML classification models
-* 🗣 Neural signal-based speech decoding
-* 📊 Data visualization of brain signals
-* 🔍 Preprocessing (filtering, noise reduction)
-* 📈 Model evaluation and performance metrics
-
----
-
-## 🛠 Tech Stack
-
-* **Language:** Python
-* **Libraries:** NumPy, Pandas, Scikit-learn
-* **Signal Processing:** SciPy, MNE 
-* **Visualization:** Matplotlib
-* **ML Models:** SVM ,Random Forest , CNN
-
-
----
-
-## 🧠 How It Works
-
-### 🔹 Seizure Detection Pipeline
-
-```id="e5r2mx"
-EEG Signal Input
-        ↓
-Preprocessing (Filtering, Noise Removal)
-        ↓
-Feature Extraction
-        ↓
-ML Model (Classification)
-        ↓
-Seizure / Non-Seizure Output
+```text
+Frontend (React + Vite)
+        │
+        ▼
+FastAPI Backend
+        │
+ ┌──────┴──────┐
+ ▼             ▼
+PostgreSQL   ML Inference
+ Database      Engine
+                 │
+        ┌────────┴────────┐
+        ▼                 ▼
+   Seizure Model    Speech Decoder
+     (EEGNet)         (EEGNet)
 ```
 
-### 🔹 Speech Decoding Pipeline
+---
 
-```id="k4q7wd"
-Brain Signal Input
-        ↓
-Signal Processing
-        ↓
-Feature Mapping
-        ↓
-ML / Model Prediction
-        ↓
-Decoded Speech Output
+# 🧠 Machine Learning Pipeline
+
+## Seizure Detection
+
+### Input
+
+EDF EEG Recordings
+
+### Preprocessing
+
+* Bandpass Filtering
+* Channel Selection
+* Epoch Generation
+* Signal Normalization
+
+### Feature Extraction
+
+* Band Power Features
+* Hjorth Parameters
+* Spectral Entropy
+* Statistical Features
+
+### Model
+
+* EEGNet Deep Learning Architecture
+* Binary Classification
+* Seizure vs Non-Seizure Detection
+
+### Output
+
+* Risk Level
+* Epoch Predictions
+* Seizure Probability Timeline
+* PDF Report
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+* React.js
+* Vite
+* React Router
+* Axios
+* Recharts
+* Tailwind CSS
+* Lucide Icons
+
+## Backend
+
+* FastAPI
+* SQLAlchemy
+* Async PostgreSQL
+* JWT Authentication
+* ReportLab
+* Matplotlib
+
+## Machine Learning
+
+* PyTorch
+* EEGNet
+* NumPy
+* SciPy
+* MNE
+* Scikit-Learn
+* XGBoost
+
+## Database
+
+* PostgreSQL
+
+---
+
+# 📂 Project Structure
+
+```text
+neuroscan/
+│
+├── backend/
+│   ├── auth/
+│   ├── db/
+│   ├── routers/
+│   ├── inference/
+│   └── api.py
+│
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── context/
+│
+├── pipeline/
+│   ├── seizure/
+│   └── speech/
+│
+└── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-```bash id="1mf2dn"
+## Clone Repository
+
+```bash
 git clone https://github.com/Gaurang-Joshi-learner/NeuroScanAI.git
-cd bci-project
+cd NeuroScanAI
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+
+python -m venv .venv
+
+source .venv/bin/activate
+# Windows
+.venv\Scripts\activate
+
 pip install -r requirements.txt
 ```
 
----
+Create `.env`
 
-## ▶️ Run the Project
+```env
+DATABASE_URL=postgresql+asyncpg://user:password@localhost/neuroscan
 
-```bash id="g6x8kj"
-python project.py
+SECRET_KEY=your_secret_key
+
+FRONTEND_URL=http://localhost:5173
+```
+
+Run Backend
+
+```bash
+uvicorn api:app --reload
 ```
 
 ---
 
-## 📊 Results
+## Frontend Setup
 
-* ✔ Accurate seizure detection on EEG dataset
-* ✔ Effective feature extraction from brain signals
-* ✔ Initial success in decoding speech-related patterns
+```bash
+cd frontend
 
----
+npm install
 
-## 🚀 Future Improvements
-
-* 🧠 Deep Learning models (CNN / RNN / LSTM)
-* ⚡ Real-time EEG processing
-* 🗣 Improved speech decoding accuracy
-* 📡 Integration with wearable BCI devices
-* 🌍 Clinical-grade validation
-
+npm run dev
+```
 
 ---
 
-## 👨‍💻 Author
+# 📊 Model Performance
 
-**Gaurang Joshi**
+## Seizure Detection
+
+| Metric         | Score            |
+| -------------- | ---------------- |
+| Architecture   | EEGNet           |
+| Classification | Binary           |
+| Input          | EDF EEG          |
+| Output         | Risk Probability |
+| Reporting      | PDF + JSON       |
+
+*Performance may vary depending on patient-specific EEG recordings and preprocessing settings.*
+
+---
+
+# 📈 Example Workflow
+
+```text
+Upload EDF File
+        │
+        ▼
+Signal Preprocessing
+        │
+        ▼
+Feature Extraction
+        │
+        ▼
+EEGNet Inference
+        │
+        ▼
+Risk Assessment
+        │
+        ▼
+Interactive Dashboard
+        │
+        ▼
+PDF Report Generation
+```
+
+---
+
+
+
+---
+
+# 🔮 Future Improvements
+
+* Real-time EEG Streaming
+* Multi-patient Batch Analysis
+* Advanced Deep Learning Architectures
+* Clinical Annotation Tools
+* Explainable AI Visualizations
+* Cloud-based Model Serving
+* Role-Based Access Management
+* Multi-Organization Collaboration
+
+---
+
+
+
+
+---
+
