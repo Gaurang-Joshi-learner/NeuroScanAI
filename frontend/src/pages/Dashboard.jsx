@@ -52,7 +52,7 @@ export default function Dashboard() {
           <h1 className="text-2xl font-bold text-white">Welcome, {user?.full_name?.split(' ')[0] || 'Researcher'}</h1>
           <p className="text-gray-400 mt-1">EEG analysis history for {user?.email}</p>
         </div>
-        <Link to="/analyze" className="btn-primary flex items-center gap-2">
+        <Link to="/analyze" className="btn-primary text-white flex items-center gap-2">
           <Upload className="w-4 h-4" />New Analysis
         </Link>
       </div>
