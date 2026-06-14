@@ -361,7 +361,7 @@ const downloadPDF = async () => {
 <div className="flex gap-2">
   <button
     onClick={downloadPDF}
-    className="btn-primary flex items-center gap-2"
+    className="btn-primary text-white flex items-center gap-2"
   >
     <Download className="w-4 h-4" />
     Download PDF
@@ -369,7 +369,7 @@ const downloadPDF = async () => {
 
   <button
     onClick={downloadJson}
-    className="btn-secondary flex items-center gap-2"
+    className="btn-secondary text-white flex items-center gap-2"
   >
     <Download className="w-4 h-4" />
     Download JSON
