@@ -307,7 +307,7 @@ const downloadPDF = async () => {
     <div className="max-w-xl mx-auto px-4 py-16 text-center">
       <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-3" />
       <p className="text-gray-300">{error}</p>
-      <button onClick={() => navigate('/dashboard')} className="btn-secondary mt-4">Back</button>
+      <button onClick={() => navigate('/dashboard')} className="btn-secondary text-white mt-4">Back</button>
     </div>
   )
 
