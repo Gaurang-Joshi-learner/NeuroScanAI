@@ -167,8 +167,8 @@ export default function Analyze() {
 
       <button onClick={handleUpload} disabled={!file || uploading}
         className="btn-primary w-full mt-6 py-3 flex items-center justify-center gap-2 text-base">
-        {uploading ? <><Loader className="w-5 h-5 animate-spin" />Analysing...</>
-                   : <><Upload className="w-5 h-5" />Run {selected.label}</>}
+        {uploading ? <><Loader className="w-5 text-white h-5 animate-spin" />Analysing...</>
+                   : <><Upload className="w-5 text-white h-5" />Run {selected.label}</>}
       </button>
 
       <p className="text-xs text-gray-600 text-center mt-4">
